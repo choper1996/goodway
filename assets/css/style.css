@@ -1,0 +1,252 @@
+/*GLOBAL SETTINGS*/
+@import "reset.css";
+@import "bootstrap-grid.min.css";
+
+body {
+    position: relative;
+    background-color: #0e0e0e;
+}
+
+a, p, li, button {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #fff;
+}
+
+p {
+    line-height: 24px;
+}
+
+h1,h2 {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+button  {
+    padding: 13px 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2), 0 0 30px rgba(255, 13, 13, 0.1);
+    background-color: #a7001e;
+    border: 1px solid #a7001e;
+    border-radius: 100px;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #151515;
+}
+
+.red-line {
+    width: 97px;
+    height: 2px;
+    background-color: #a7001e;
+}
+
+.bold {
+    font-weight: 500;
+}
+
+/*HEADER*/
+.header {
+    position: absolute;
+    height: 100px;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #f5f6f1;
+}
+
+.header a {
+    color: #151515;
+}
+
+.header .container{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-list {
+    display: flex;
+    width: 555px;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.nav-list__items {
+    display: block;
+    position: relative;
+}
+
+.nav-list__items:before {
+    position: absolute;
+    height: 102px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: #a7001e;
+    border: 1px solid blue;
+}
+
+.header__contacts a {
+    font-weight: 500;
+}
+
+.header__contacts a:first-child {
+    margin-bottom: 20px;
+}
+
+/*MAIN*/
+.main {
+    /*height: 100vh;*/
+    min-height: 900px;
+    padding-top: 200px;
+    background-image: url(../img/main-background-1.jpg);
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.main__title {
+    margin-bottom: 50px;
+    font-size: 50px;
+    text-align: left;
+    color: #151515;
+}
+
+.main__paragraph {
+    color: #151515;
+}
+
+.main__call-form-button {
+    margin-top: 50px;
+}
+
+/*SERVICES*/
+.services {
+    padding-top: 100px;
+    overflow: hidden;
+}
+.services__title {
+    margin-bottom: 100px;
+}
+
+.characteristics {
+    padding-top: 138px;
+    position: relative;
+}
+
+.characteristics__title {
+    margin-bottom: 50px;
+}
+
+.characteristics-list {
+    width: 50%;
+    margin-bottom: 100px;
+}
+
+.characteristics-list__items {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.characteristics-list__items:last-child {
+    margin-bottom: 0;
+}
+
+.characteristics-list__items--aside {
+    width: 200px;
+    text-align: left;
+}
+
+.characteristics__picture {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    bottom: 0;
+    background: url(../img/characteristic-car.png) left center;
+}
+
+.services__cost-block {
+    margin: 50px 0;
+}
+
+.services__cost-block__paragraph:first-child {
+    margin-bottom: 18px;
+}
+
+/*JOB*/
+.job {
+    background: url(../img/job-background.png) top center;
+}
+
+.advantages__title {
+    padding-top: 45px;
+    margin: 0 0 200px 0;
+}
+
+.advantages__list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.advantages__list-items p {
+    text-align: center;
+}
+
+.advantages__list-items img {
+    display: block;
+    margin: 0 auto 30px auto;
+}
+
+.work {
+    padding-top: 200px;
+}
+
+.work__title, .work__paragraph {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.calculator {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.calculator__range {
+    -webkit-appearance: none;
+    height: 2px;
+    width: 260px;
+    outline: none;
+    background-color: #b1041f;
+}
+
+.calculator__range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background-color: #b1041f;
+    border-radius: 100px;
+}
+
+.calculator__result {
+    width: 50%;
+    text-align: center;
+}
+
+.calculator__result-value {
+    margin-top: 20px;
+    font-size: 30px;
+}
