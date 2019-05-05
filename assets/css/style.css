@@ -9,6 +9,7 @@ body {
 
 body * {
     box-sizing: border-box;
+    outline: none;
 }
 
 a, p, li, button {
@@ -62,10 +63,12 @@ button:hover {
 /*HEADER*/
 .header {
     position: absolute;
-    padding-top: 24px;
+    padding: 24px 0;
     width: 100%;
     left: 0;
     top: 0;
+    transition: .2s;
+    z-index:  2;
 }
 
 .header a, .header p {
@@ -109,6 +112,10 @@ button:hover {
     transition: .2s;
 }
 
+.nav-list .active:after {
+    width: 100%;
+}
+
 .nav-list__items:hover:after {
     width: 100%;
 }
@@ -125,12 +132,74 @@ button:hover {
 
 /*MAIN*/
 .main {
+    position: relative;
+    height: 100vh;
+    max-height: 900px;
+    /*background-image: url(../img/main-background-2.jpg);*/
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.main .container {
+    position: relative;
+    height: 100%;
+}
+
+.main__content-wrapper {
+    display: block;
     height: 100vh;
     max-height: 900px;
     padding-top: 200px;
-    background-image: url(../img/main-background-1.jpg);
+    background-position: left top ;
     -webkit-background-size: cover;
     background-size: cover;
+}
+
+.main__content-wrapper:first-child {
+    background-image: url(../img/main-background-2.jpg);
+}
+
+.main__content-wrapper:last-child {
+    background-image: url(../img/main-background-1.jpg);
+}
+
+.main-background-slider {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.main-background-slider__dots-wrapper {
+    position: absolute;
+    right: 0;
+    bottom: 50%;
+    transform: translateY(50%);
+    z-index: 1;
+}
+
+.main-background-slider__dots {
+    height: 16px;
+    width: 16px;
+    margin-bottom: 20px;
+    border-radius: 100px;
+    background-color: #949ea5;
+    transition: .2s;
+}
+
+.main-background-slider__dots:hover {
+    background-color: #a7001e;
+}
+
+.main-background-slider__dots-wrapper > .active {
+    background-color: #a7001e;
+    transition: .2s;
+}
+
+.main-background-slider__dots:last-child {
+    margin-bottom: 0;
 }
 
 .main__title {
@@ -149,6 +218,21 @@ button:hover {
 .main__call-form-button {
     margin-top: 50px;
 }
+
+.main-back-call-wrapper {
+    position: absolute;
+    display: flex;
+    right: 0;
+    bottom: 35px;
+    align-items: center;
+    z-index: 1;
+}
+
+.main-back-call-wrapper__paragraph {
+    text-align: right;
+    margin-right: 26px;
+}
+
 
 /*BE DRIVER*/
 .be-driver {
@@ -359,7 +443,6 @@ button:hover {
     width: 260px;
     margin-top: 35px;
     outline: none;
-    background-color: #b1041f;
 }
 
 .calculator__range::-webkit-slider-thumb {
@@ -453,7 +536,9 @@ button:hover {
     right: 80px;
     background:#fff url(../img/contacts-card-background.png);
     opacity: 0.95;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)
+    -webkit-box-shadow: 0 020px 0 rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 0 20px 0 rgba(0,0,0,0.15);
+    box-shadow: 0 0 20px 0 rgba(0,0,0,0.15)
 }
 
 .contacts__card__list__items {
@@ -469,7 +554,7 @@ button:hover {
 /*ABOUT*/
 .about {
     padding: 50px 0 100px 0;
-    background: url(../img/about-background.png) center top;
+    background:no-repeat url(../img/about-background.png) center bottom;
     -webkit-background-size: 100% auto;
     background-size: 100% auto;
 }
@@ -481,6 +566,37 @@ button:hover {
 
 .about .red-line {
     margin: 0 auto;
+}
+
+.about__slider {
+    margin: 50px auto 0 auto;
+    width: 945px;
+}
+
+.about-slider__items {
+    width: 25%;
+}
+
+.about-slider__items img {
+    width: 100%;
+}
+
+.about-slider__next, .about-slider__prev {
+    position: absolute;
+    height: 22px;
+    width: 12px;
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
+.about-slider__next {
+    background-image: url(../img/slider-arrow-next.png);
+    right: -42px;
+}
+
+.about-slider__prev {
+    background-image: url(../img/slider-arrow-prev.png);
+    left: -42px;
 }
 
 .our-partners__title {
@@ -536,6 +652,7 @@ button:hover {
     width: 217px;
     margin-bottom: 35px;
     padding-left: 5px;
+    color: #fff;
     background-color: transparent;
     border: 0;
     border-bottom: 1px solid #292929;
