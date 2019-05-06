@@ -91,38 +91,41 @@ $( document ).ready(function() {
         daysRange.style.background = `-webkit-linear-gradient(left ,#b1041f 0%,#b1041f ${((daysRange.value - 15) / daysPercent).toFixed()}%,#383838 ${((daysRange.value - 15) / daysPercent).toFixed()}%, #383838 100%)`;
     });
 
-    // STICK NAVIGATION
-    let main = document.querySelector('.main'),
-        header = document.querySelector('.header');
-
-    let navLinks = document.querySelectorAll('.nav-list__items');
+    // STICK NAVIGATION AND HOVER LINKS
+    let header = document.querySelector('.header'),
+        navLinks = document.querySelectorAll('.nav-list__items');
 
     window.addEventListener('scroll', ()=> {
-        let scrolled = window.pageYOffset;
 
-        if (scrolled > main.clientHeight) {
+        let mainY       = document.querySelector('.main').getBoundingClientRect().bottom,
+            beDriverY   = document.querySelector('.be-driver').getBoundingClientRect().top,
+            workWithUsY = document.querySelector('.work-with-us').getBoundingClientRect().top,
+            advantagesY = document.querySelector('.advantages').getBoundingClientRect().top,
+            contactsY   = document.querySelector('.contacts').getBoundingClientRect().top;
+
+        if (mainY < 10) {
             header.style.position = 'fixed';
+            header.style.top = '0';
             header.style.backgroundColor = '#fff';
-        } else if (scrolled < main.clientHeight && scrolled > (main.clientHeight - 150)){
+        }
+
+        if (mainY > 10 && mainY < 100) {
             header.style.top = '-150px';
+        }
 
-            setTimeout(()=>{
-                header.style.top = '0';
-                header.style.position = 'absolute';
-                header.style.backgroundColor = 'transparent';
-            },300);
+        if (mainY > 110) {
+            header.style.top = '0';
+            header.style.position = 'absolute';
+            header.style.backgroundColor = 'transparent';
+        }
 
+        if (mainY > 0) {
             navLinks.forEach((item)=>{
                 item.classList.remove('active');
             });
 
             navLinks[0].classList.add('active');
         }
-
-        let beDriverY   = document.querySelector('.be-driver').getBoundingClientRect().top,
-            workWithUsY = document.querySelector('.work-with-us').getBoundingClientRect().top,
-            advantagesY = document.querySelector('.advantages').getBoundingClientRect().top,
-            contactsY   = document.querySelector('.contacts').getBoundingClientRect().top;
 
         if (beDriverY < 100 && beDriverY > -100) {
             navLinks.forEach((item)=>{
@@ -157,19 +160,142 @@ $( document ).ready(function() {
         }
     });
 
-    navLinks.forEach((item)=>{
+    // ANCHOR LINKS
+    let footerNavLinks = document.querySelectorAll('.footer-nav-list__items');
+
+    footerNavLinks.forEach((item)=>{
         item.addEventListener('click', (e)=>{
             e.preventDefault();
 
-            let selectedLink = e.target;
-            let href = selectedLink.getAttribute('href');
-            let el   = document.querySelector(`${href}`);
+            let selectedLink = e.target,
+                href = selectedLink.getAttribute('href'),
+                el   = document.querySelector(`${href}`);
 
             el.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start'
             });
         })
-    })
+    });
+
+    navLinks.forEach((item)=>{
+        item.addEventListener('click', (e)=>{
+            e.preventDefault();
+
+            let selectedLink = e.target,
+                href = selectedLink.getAttribute('href'),
+                el   = document.querySelector(`${href}`);
+
+            el.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        })
+    });
+
+    // MODAL
+    let modal            = document.querySelector('.modal'),
+        checkbox         = document.querySelector('.checkbox'),
+        closeModalButton = document.querySelector('.modal__close-button');
+
+    let  closeModal = function() {
+        modal.style.opacity = '0';
+        setTimeout(()=> {
+            modal.style.display = 'none'
+        },200)
+    };
+
+    checkbox.addEventListener('click', ()=> {
+        checkbox.classList.toggle('active');
+    });
+
+    closeModalButton.addEventListener('click', ()=> {
+        closeModal();
+    });
+
+    // CALL MODAL
+    let callFormElements = document.querySelectorAll('.call-form');
+
+    let callModal = function () {
+        modal.style.display = 'block';
+        setTimeout(()=> {
+            modal.style.opacity = '1'
+        },1)
+    };
+
+    callFormElements.forEach((item)=>{
+        item.addEventListener('click', ()=>{
+            callModal();
+        });
+    });
+
+    // SUBMIT FORM
+    let submitButton   = document.querySelector('.modal__button'),
+        backButton     = document.querySelector('.modal-error__back-button'),
+        successButton  = document.querySelector('.modal-success__button'),
+        errorWindow    = document.querySelector('.modal__error-window'),
+        successWindow  = document.querySelector('.modal__success-window'),
+        errorMessage   = document.querySelector('.modal-error__paragraph'),
+        nameInput      = document.querySelector('.name-input'),
+        phoneInput     = document.querySelector('.phone-input');
+
+    backButton.addEventListener('click', (e)=> {
+        e.preventDefault();
+
+        errorWindow.style.left = '-100%';
+    });
+
+    submitButton.addEventListener('click', (e)=> {
+        e.preventDefault();
+
+        let required = false,
+            checked  = false;
+
+        if (!(nameInput.value === '' || phoneInput.value === '')) {
+            required = true;
+        }
+
+        if (checkbox.classList.contains('active')) {
+            checked = true;
+        }
+
+        if (required === false) {
+            errorWindow.style.left = '0';
+            errorMessage.innerHTML = 'Поля, которые обязательно нужно заполнить - пустые. <br> Проверьте свои данные и попробуйте еще раз.';
+            return false;
+        } else if (checked === false) {
+            errorWindow.style.left = '0';
+            errorMessage.innerHTML = 'Перед отправкой данных вы должны согласиться <br>  на обработку персональных данных.';
+            return false;
+        } else {
+            successWindow.style.left = '0'
+        }
+
+    });
+
+    successButton.addEventListener('click', (e)=> {
+        e.preventDefault();
+        closeModal();
+    });
+
+    // FOOTER FORM
+    let footerButton     = document.querySelector('.footer__call-form-button'),
+        footerNameInput  = document.querySelector('.footer__name-input'),
+        footerPhoneInput = document.querySelector('.footer__phone-input');
+
+    footerButton.addEventListener('click', (e)=> {
+        e.preventDefault();
+
+        nameInput.value = footerNameInput.value;
+        phoneInput.value = footerPhoneInput.value;
+
+        callModal();
+    });
+
+
+
+
+
+
 });
 
