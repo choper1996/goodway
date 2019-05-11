@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,500|Rubik:500&amp;subset=cyrillic" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/slick.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
     <script src="assets/js/jquery-3.2.1.min.js"></script>
     <script src="assets/js/slick.min.js"></script>
     <script src="assets/js/script.js"></script>
@@ -16,8 +15,9 @@
 <body>
     <header class="header">
         <div class="container">
+            <img src="assets/img/burger-icon.png" alt="burger menu">
             <a href="">
-                <img src="assets/img/logo-goodway-black.png" alt="Goodway logo">
+                <img class="header__logo" src="assets/img/logo-goodway-black.png" alt="Goodway logo">
             </a>
             <nav class="nav">
                 <ul class="nav-list">
@@ -29,9 +29,9 @@
                 </ul>
             </nav>
             <div class="header__contacts">
-                <a href="tel:+79854199192">+7 (985) 419 - 91 - 92</a>
-                <p>г. Москва ул. Ярославская д.8, кор.6</p>
-                <a href="mailto:goodway.moscow@yandex.ru">goodway.moscow@yandex.ru</a>
+                <a class="header-contacts__tel" href="tel:+79854199192">8 985 419 91 92</a>
+                <p class="header-contacts__geolocation">г. Москва ул. Ярославская д.8, кор.6</p>
+                <a class="header-contacts__mail" href="mailto:goodway.moscow@yandex.ru">goodway.moscow@yandex.ru</a>
             </div>
         </div>
     </header>
@@ -89,7 +89,7 @@
                         <li class="be-driver__lists__items">Обучение и подготовка для получения <br> Бизнес-Аккаунта.</li>
                     </ul>
                 </section>
-                <section class="be-driver__wrapper__items">
+                <section class="be-driver__wrapper__items be-driver-promise-list-wrapper">
                     <h3 class="be-driver__lists-titles">Предоставляется </h3>
                     <div class="red-line"></div>
                     <ul class="be-driver__lists be-driver__promise-list">
@@ -111,8 +111,8 @@
                         <li class="be-driver__lists__items">Соблюдение правил и философии <br> нашей компании.</li>
                     </ul>
                 </section>
-                <button class="be-driver__call-form-button call-form">Оставить заявку</button>
             </div>
+            <button class="be-driver__call-form-button call-form">Оставить заявку</button>
         </article>
         <article class="work-with-us">
             <h2 class="work-with-us__title">Работа с нами</h2>
@@ -130,12 +130,13 @@
                         <li class="characteristics-list__items">Максимальная скорость, км/ч <span class="characteristics-list__items--aside">233</span></li>
                     </ul>
                     <div class="red-line"></div>
+                    <div class="characteristics__picture"></div>
                     <div class="work-with-us__cost-block">
                         <p class="work-with-us__cost-block__paragraph">Цена аренды за сутки:  <span class="bold">3 500 рублей</span></p>
                         <p class="work-with-us__cost-block__paragraph">Заработная плата при работе на этом авто: <span class="bold">85 000 - 125 000 рублей</span></p>
                     </div>
                 </div>
-                <div class="characteristics__picture"></div>
+
             </section>
             <section class="calculator">
                 <div class="container">
@@ -236,10 +237,18 @@
                 </div>
                 <p class="our-partners__title bold">Наши партнеры</p>
                 <div class="our-partners__wrapper">
-                    <img src="assets/img/partners-citymobil.png" alt="citymobil">
-                    <img src="assets/img/partners-yandex.png" alt="yandex">
-                    <img src="assets/img/partners-gettaxi.png" alt="gettaxi">
-                    <img src="assets/img/partners-whelly.png" alt="whelly">
+                    <div class="our-partners-wrapper__items">
+                        <img src="assets/img/partners-citymobil.png" alt="citymobil">
+                    </div>
+                    <div class="our-partners-wrapper__items">
+                        <img src="assets/img/partners-yandex.png" alt="yandex">
+                    </div>
+                    <div class="our-partners-wrapper__items">
+                        <img src="assets/img/partners-gettaxi.png" alt="gettaxi">
+                    </div>
+                    <div class="our-partners-wrapper__items">
+                        <img src="assets/img/partners-whelly.png" alt="whelly">
+                    </div>
                 </div>
             </div>
         </article>
@@ -275,9 +284,7 @@
     <footer class="footer">
         <div class="footer-wrapper container">
             <div>
-                <a href="">
-                    <img src="assets/img/logo-goodway-white.png" alt="goodway logo">
-                </a>
+               <img class="footer__logo" src="assets/img/logo-goodway-white.png" alt="goodway logo">
                 <div class="footer-social-networks-wrapper">
                     <a href="" target="_blank"></a>
                     <a href="" target="_blank"></a>
