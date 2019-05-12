@@ -167,13 +167,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .main__content-wrapper:first-child {
-    background:no-repeat url(../img/main-background-1.jpg) top center;
+    background:no-repeat url(../img/main-background-1.jpg) bottom center;
     -webkit-background-size:cover;
     background-size: cover;
 }
 
 .main__content-wrapper:last-child {
-    background:no-repeat url(../img/main-background-2.jpg) top center;
+    background:no-repeat url(../img/main-background-2.jpg) bottom center;
     -webkit-background-size:cover;
     background-size: cover;
 }
@@ -749,7 +749,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .modal form {
     position: relative;
-    width: 750px;
+    width: 100%;
+    max-width: 750px;
     margin: auto;
     padding: 30px 100px 20px 100px;
     overflow: hidden;
@@ -888,8 +889,11 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     /*MAIN*/
-    .main__content-wrapper:first-child {
+    .main__content-wrapper {
         min-height: 710px;
+    }
+
+    .main__content-wrapper:first-child {
         background:no-repeat url(../img/main-background-1.jpg);
         background-position-x: 60%;
         background-position-y: 100%;
@@ -898,7 +902,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .main__content-wrapper:last-child {
-        min-height: 710px;
         background:no-repeat url(../img/main-background-2.jpg);
         background-position-x: 60%;
         background-position-y: 100%;
@@ -1010,13 +1013,13 @@ input[type=number]::-webkit-outer-spin-button {
 @media screen and (max-width: 767.98px) {
     /*MAIN*/
     .main {
-        max-height: 580px;
-        min-height: 300px;
+        height: 100vh;
+        min-height: 670px;
     }
 
     .main__content-wrapper {
-        max-height: 580px;
-        min-height: 300px;
+        height: 100vh;
+        min-height: 670px;
         padding-top: 150px;
         background-position: left bottom ;
 
@@ -1039,36 +1042,6 @@ input[type=number]::-webkit-outer-spin-button {
     .main__title, .main__paragraph {
         text-align: center;
     }
-}
-
-/*SMALL SCREENS*/
-@media screen and (max-width: 575.98px)  {
-    /*GLOBAL SETTINGS*/
-    a, p, li, button {
-        font-size: 12px;
-    }
-
-    p {
-        line-height: 18px;
-    }
-
-    h1,h2 {
-        font-size: 18px;
-    }
-
-    .red-line {
-        width: 50px;
-    }
-
-    /*MAIN*/
-    .main__title {
-        font-size: 24px;
-        line-height: 30px;
-    }
-
-    .main__paragraph {
-        line-height: 18px;
-    }
 
     .main__paragraph:nth-child(2) {
         max-width: 420px;
@@ -1077,10 +1050,6 @@ input[type=number]::-webkit-outer-spin-button {
 
     .main__paragraph:nth-child(2) > br {
         display: none;
-    }
-
-    .main__call-form-button {
-        margin: 50px auto 0 auto;
     }
 
     .main-background-slider__dots-wrapper {
@@ -1094,6 +1063,10 @@ input[type=number]::-webkit-outer-spin-button {
 
     .main-back-call-wrapper {
         display: none;
+    }
+
+    .main__call-form-button {
+        margin: 50px auto 0 auto;
     }
 
     /*BE DRIVER*/
@@ -1118,7 +1091,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .be-driver__lists-titles {
-        font-size: 12px;
         text-align: center;
     }
 
@@ -1127,8 +1099,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .be-driver__lists__items {
-        margin-bottom: 25px;
-        line-height: 18px;
         text-align: center;
     }
 
@@ -1142,7 +1112,7 @@ input[type=number]::-webkit-outer-spin-button {
 
     .be-driver__promise-list {
         margin: 60px auto 0 auto;
-        width: 220px;
+        width: 300px;
     }
 
     .be-driver__promise-list .be-driver__lists__items {
@@ -1193,7 +1163,7 @@ input[type=number]::-webkit-outer-spin-button {
         height: 250px;
         min-width: 320px;
         background:no-repeat url(../img/characteristic-car-mobile.png) right top;
-        transform: translate(15px, -50px);
+        transform: translate(130px, -50px);
     }
 
     .work-with-us__cost-block {
@@ -1214,7 +1184,6 @@ input[type=number]::-webkit-outer-spin-button {
         flex-wrap: wrap;
         text-align: center;
     }
-
 
     .calculator__wrapper__items:first-child {
         padding-right: 0;
@@ -1238,33 +1207,6 @@ input[type=number]::-webkit-outer-spin-button {
     .work-with-us__subtitle {
         margin: 50px 0 30px 0;
         text-align: center;
-    }
-
-    .special-offer {
-        background: no-repeat #252525 url(../img/special-offer-background.jpg) center;
-        -webkit-background-size: auto 100%;
-        background-size: auto 100%;
-        padding: 50px 0;
-        text-align: center;
-    }
-
-    /*SPECIAL OFFER*/
-    .special-offer__title {
-        margin-bottom: 30px;
-    }
-
-    .special-offer__call-form-button {
-        margin: 30px auto 0 auto;
-    }
-
-    .special-offer__call-form-button:hover {
-        color: #fff;
-    }
-
-    .advantages-and-contacts {
-        background:no-repeat url(../img/advantages-background.png) center 200px;
-        -webkit-background-size: auto 50%;
-        background-size: auto 50%;
     }
 
     /*ADVANTAGES*/
@@ -1292,7 +1234,6 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .contacts__map-wrapper {
-        background-color: #252525;
         padding-bottom: 290px;
     }
 
@@ -1309,13 +1250,18 @@ input[type=number]::-webkit-outer-spin-button {
     }
 
     .contacts__card__list {
+        font-size: 12px;
         margin: auto;
     }
 
-    /*ABOUT*/
+    .contacts__card__list__items {
+        font-size: 12px;
+    }
+
+   /*ABOUT*/
     .about {
         padding-bottom: 40px;
-        background:no-repeat #252525 url(../img/about-background.png) center bottom;
+        background:no-repeat url(../img/about-background.png) center bottom;
         -webkit-background-size: auto 50%;
         background-size: auto 50%;
     }
@@ -1366,5 +1312,124 @@ input[type=number]::-webkit-outer-spin-button {
     .footer-nav-list {
         text-align: right;
     }
+
+    /*MODALS*/
+    .modal form {
+        padding: 30px;
+    }
+
+    .modal-inputs-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
+
+/*SMALL SCREENS*/
+@media screen and (max-width: 575.98px)  {
+    /*GLOBAL SETTINGS*/
+    a, p, li, button {
+        font-size: 12px;
+    }
+
+    p {
+        line-height: 18px;
+    }
+
+    h1,h2 {
+        font-size: 18px;
+    }
+
+    .red-line {
+        width: 50px;
+    }
+
+    /*MAIN*/
+    .main {
+        height: 100vh;
+        min-height: 550px;
+        max-height: 700px;
+    }
+
+    .main__content-wrapper {
+        height: 100vh;
+        min-height: 550px;
+        max-height: 700px;
+        padding-top: 150px;
+        background-position: left bottom ;
+
+    }
+
+    .main__title {
+        font-size: 24px;
+        line-height: 30px;
+    }
+
+    .main__paragraph {
+        line-height: 18px;
+    }
+
+    /*BE DRIVER*/
+    .be-driver__lists-titles {
+        font-size: 12px;
+    }
+
+    .be-driver__lists__items {
+        margin-bottom: 25px;
+        line-height: 18px;
+    }
+
+    .be-driver__promise-list {
+        margin: 60px auto 0 auto;
+        width: 240px;
+    }
+
+    .special-offer {
+        background: no-repeat #252525 url(../img/special-offer-background.jpg) center;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    /*WORK WITH US*/
+    .characteristics__picture {
+        transform: translate(15px, -50px);
+    }
+
+    /*SPECIAL OFFER*/
+    .special-offer__title {
+        margin-bottom: 30px;
+    }
+
+    .special-offer__call-form-button {
+        margin: 30px auto 0 auto;
+    }
+
+    .special-offer__call-form-button:hover {
+        color: #fff;
+    }
+
+    .advantages-and-contacts {
+        background:no-repeat #212121 url(../img/advantages-background.png) center 200px;
+        -webkit-background-size: auto 50%;
+        background-size: auto 50%;
+    }
+
+    /*ABOUT*/
+    .about {
+        background-color: #212121;
+    }
+
+    /*MODAL*/
+    .modal__title {
+        max-width: 280px;
+        margin: 0 auto 50px auto;
+    }
+
+    .modal__title > br {
+        display: none;
+    }
+}
+
 
