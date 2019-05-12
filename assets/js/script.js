@@ -79,16 +79,32 @@ $( document ).ready(function() {
     hoursRange.style.background = `-webkit-linear-gradient(left ,#b1041f 0%,#b1041f ${((hoursRange.value - 1) / hoursPercent).toFixed()}%,#383838 ${((hoursRange.value - 1) / hoursPercent).toFixed()}%, #383838 100%)`;
     daysRange.style.background = `-webkit-linear-gradient(left ,#b1041f 0%,#b1041f ${((daysRange.value - 15) / daysPercent).toFixed()}%,#383838 ${((daysRange.value - 15) / daysPercent).toFixed()}%, #383838 100%)`;
 
-    hoursRange.addEventListener('mousemove', ()=> {
+    let changeDaysRange = function () {
         hoursValue.innerText = +hoursRange.value;
         result.innerText = `${(+daysRange.value * +hoursRange.value) * 1150} Р`;
         hoursRange.style.background = `-webkit-linear-gradient(left ,#b1041f 0%,#b1041f ${((hoursRange.value - 1) / hoursPercent).toFixed()}%,#383838 ${((hoursRange.value - 1) / hoursPercent).toFixed()}%, #383838 100%)`;
-    });
+    };
 
-    daysRange.addEventListener('mousemove', ()=> {
+    let changeHoursValue = function () {
         daysValue.innerText = +daysRange.value;
         result.innerText = `${(+daysRange.value * +hoursRange.value) * 1150} Р`;
         daysRange.style.background = `-webkit-linear-gradient(left ,#b1041f 0%,#b1041f ${((daysRange.value - 15) / daysPercent).toFixed()}%,#383838 ${((daysRange.value - 15) / daysPercent).toFixed()}%, #383838 100%)`;
+    };
+
+    hoursRange.addEventListener('mousemove', ()=> {
+        changeDaysRange();
+    });
+
+    hoursRange.addEventListener('change', ()=> {
+        changeDaysRange();
+    });
+
+    daysRange.addEventListener('mousemove', ()=> {
+        changeHoursValue();
+    });
+
+    daysRange.addEventListener('change', ()=> {
+        changeHoursValue();
     });
 
     // STICK NAVIGATION AND HOVER LINKS
@@ -177,6 +193,21 @@ $( document ).ready(function() {
             });
         })
     });
+
+    let anchorToMain = document.querySelector('.header__anchor-to-main'),
+        main         = document.querySelector('.main');
+
+
+    anchorToMain.addEventListener('click', (e)=>{
+        e.preventDefault();
+
+        main.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+    });
+
+
 
     navLinks.forEach((item)=>{
         item.addEventListener('click', (e)=>{
@@ -292,7 +323,13 @@ $( document ).ready(function() {
         callModal();
     });
 
+    // TOGGLE MENU
+    let burger = document.querySelector('.header__burger'),
+        nav    = document.querySelector('.nav');
 
+    burger.addEventListener('click', ()=> {
+        nav.classList.toggle('active');
+    });
 
 
 
