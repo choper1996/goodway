@@ -58,7 +58,16 @@ $( document ).ready(function() {
         slidesToShow:      4,
         slidesToScroll:    1,
         nextArrow: '<div class="about-slider__next"><div>',
-        prevArrow: '<div class="about-slider__prev"><div>'
+        prevArrow: '<div class="about-slider__prev"><div>',
+        responsive: [
+            {
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
+                }
+            }
+        ]
     });
 
     // CALCULATOR

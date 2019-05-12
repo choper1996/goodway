@@ -147,6 +147,7 @@ input[type=number]::-webkit-outer-spin-button {
     position: relative;
     height: 100vh;
     max-height: 900px;
+    min-height: 860px;
     background-color: #fff;
     -webkit-background-size: cover;
     background-size: cover;
@@ -161,18 +162,20 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     height: 100vh;
     max-height: 900px;
+    min-height: 860px;
     padding-top: 200px;
-    background-position: bottom center ;
-    -webkit-background-size: cover;
-    background-size: cover;
 }
 
 .main__content-wrapper:first-child {
-    background-image: url(../img/main-background-1.jpg);
+    background:no-repeat url(../img/main-background-1.jpg) top center;
+    -webkit-background-size:cover;
+    background-size: cover;
 }
 
 .main__content-wrapper:last-child {
-    background-image: url(../img/main-background-2.jpg);
+    background:no-repeat url(../img/main-background-2.jpg) top center;
+    -webkit-background-size:cover;
+    background-size: cover;
 }
 
 .main-background-slider {
@@ -248,8 +251,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .main-back-call-wrapper__icon {
     width: 40px;
-    -webkit-filter: drop-shadow(0 0 30px rgba(167, 0, 30, 0.7));
-    filter: drop-shadow(0 0 30px rgba(167, 0, 30, 0.7));
+    -webkit-filter: drop-shadow(0 0 30px rgba(167, 0, 30, 0.3));
+    filter: drop-shadow(0 0 30px rgba(167, 0, 30, 0.3));
 }
 
 
@@ -391,7 +394,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100%;
     left: 50%;
     bottom: 0;
-    background: url(../img/characteristic-car.png) left center;
+    background:no-repeat url(../img/characteristic-car.png) left center;
 }
 
 .work-with-us__cost-block {
@@ -873,23 +876,61 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 auto 50px auto;
 }
 
-/*SMALL SCREENS*/
-@media screen and (max-width: 576px)  {
-    /*GLOBAL SETTINGS*/
-    a, p, li, button {
-        font-size: 12px;
+/*FIRST BREAK*/
+@media screen and (max-width: 1199.98px) {
+    /*HEADER*/
+    .nav {
+        margin: auto;
     }
 
-    p {
-        line-height: 18px;
+    .nav-list__advantage {
+        display: none;
     }
 
-    h1,h2 {
-        font-size: 18px;
+    /*MAIN*/
+    .main__content-wrapper:first-child {
+        min-height: 710px;
+        background:no-repeat url(../img/main-background-1.jpg);
+        background-position-x: 60%;
+        background-position-y: 100%;
+        -webkit-background-size: auto 70%;
+        background-size: auto 70%;
     }
 
-    .red-line {
-        width: 50px;
+    .main__content-wrapper:last-child {
+        min-height: 710px;
+        background:no-repeat url(../img/main-background-2.jpg);
+        background-position-x: 60%;
+        background-position-y: 100%;
+        -webkit-background-size: auto 70%;
+        background-size: auto 70%;
+    }
+
+    /*ABOUT*/
+    .about-slider__next {
+        background-image: url(../img/slider-arrow-next.png);
+        right: -15px;
+    }
+
+    .about-slider__prev {
+        background-image: url(../img/slider-arrow-prev.png);
+        left: -15px;
+    }
+
+    .header-contacts__geolocation, .header-contacts__mail {
+        display: none;
+    }
+
+    .header-contacts__tel {
+        margin-bottom: 0;
+    }
+}
+
+
+/*MEDIUM SCREENS*/
+@media screen and (max-width: 991.98px) {
+    .header__logo {
+        width: 75px;
     }
 
     /*HEADER*/
@@ -899,6 +940,14 @@ input[type=number]::-webkit-outer-spin-button {
 
     .header__burger {
         display: block;
+    }
+
+    .header__logo {
+        position: absolute;
+        display: block;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .nav {
@@ -932,61 +981,54 @@ input[type=number]::-webkit-outer-spin-button {
         color: #fff;
     }
 
-    .nav-list__items:after {
-        position: absolute;
-        content: '';
-        height: 2px;
-        width: 0;
-        left: 0;
-        bottom: -12px;
-        background-color: #a7001e;
-        transition: .2s;
+    /*CHARACTERISTICS*/
+    .characteristics-list {
+        width: 70%;
     }
 
-    .nav-list .active:after {
-        width: 100%;
-    }
 
-    .nav-list__items:hover:after {
-        width: 100%;
+    /*CONTACTS*/
+    .contacts__card {
+        right: 10px;
+        top: 10px;
     }
-
-    .header__logo {
-        position: absolute;
-        display: block;
-        width: 75px;
-        top: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .header-contacts__geolocation, .header-contacts__mail {
+    /*ABOUT*/
+    .about__paragraph > br{
         display: none;
     }
 
-    .header-contacts__tel {
-        margin-bottom: 0;
+    .about__paragraph .bold {
+        display: block;
     }
 
+    .about__slider {
+        margin: 50px auto 0 auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767.98px) {
     /*MAIN*/
     .main {
         max-height: 580px;
+        min-height: 300px;
     }
 
     .main__content-wrapper {
         max-height: 580px;
+        min-height: 300px;
         padding-top: 150px;
         background-position: left bottom ;
 
     }
 
-    .main__content-wrapper:nth-child(1) {
+    .main__content-wrapper:first-child {
         background:no-repeat url(../img/main-background-1.jpg) left bottom;
         -webkit-background-size: auto 80%;
         background-size: auto 80%;
     }
 
-    .main__content-wrapper:nth-child(2) {
+    .main__content-wrapper:last-child {
         background:no-repeat url(../img/main-background-2.jpg);
         background-position-x: 60%;
         background-position-y: 100%;
@@ -994,14 +1036,37 @@ input[type=number]::-webkit-outer-spin-button {
         background-size: auto 70%;
     }
 
-    .main__title {
+    .main__title, .main__paragraph {
         text-align: center;
+    }
+}
+
+/*SMALL SCREENS*/
+@media screen and (max-width: 575.98px)  {
+    /*GLOBAL SETTINGS*/
+    a, p, li, button {
+        font-size: 12px;
+    }
+
+    p {
+        line-height: 18px;
+    }
+
+    h1,h2 {
+        font-size: 18px;
+    }
+
+    .red-line {
+        width: 50px;
+    }
+
+    /*MAIN*/
+    .main__title {
         font-size: 24px;
         line-height: 30px;
     }
 
     .main__paragraph {
-        text-align: center;
         line-height: 18px;
     }
 
@@ -1253,14 +1318,6 @@ input[type=number]::-webkit-outer-spin-button {
         background:no-repeat #252525 url(../img/about-background.png) center bottom;
         -webkit-background-size: auto 50%;
         background-size: auto 50%;
-    }
-
-    .about__paragraph > br{
-        display: none;
-    }
-
-    .about__paragraph .bold {
-        display: block;
     }
 
     .about__slider {
