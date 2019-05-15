@@ -301,11 +301,11 @@ $( document ).ready(function() {
 
         if (required === false) {
             errorWindow.style.left = '0';
-            errorMessage.innerHTML = 'Поля, которые обязательно нужно заполнить - пустые. <br> Проверьте свои данные и попробуйте еще раз.';
+            errorMessage.innerHTML = 'Поля, которые обязательно нужно заполнить - пустые. Проверьте свои данные и попробуйте еще раз.';
             return false;
         } else if (checked === false) {
             errorWindow.style.left = '0';
-            errorMessage.innerHTML = 'Перед отправкой данных вы должны согласиться <br>  на обработку персональных данных.';
+            errorMessage.innerHTML = 'Перед отправкой данных вы должны согласиться на обработку персональных данных.';
             return false;
         } else {
             successWindow.style.left = '0'
